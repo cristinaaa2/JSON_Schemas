@@ -1,4 +1,4 @@
-<h1>Practica JSON Schemas<h1>
+Practica JSON Schemas
 
 == En JSON Schemas no es pot fer ==
 
