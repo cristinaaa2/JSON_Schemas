@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "monitors": {
+      "type": "object",
+      "properties": {
+        "monitor": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "brand": {
+                  "type": "string",
+		              "description": "Marca del producte"
+                },
+                "size": {
+                  "type": "number",
+		              "description": "Mida de la pantalla",
+		              "maximum": 15.6,
+                  "minimum": 27
+                },
+                "ratio": {
+                  "type": "string",
+		              "description": "Radi de la pantalla",
+                  "enum": ["4:3","16:9"]
+                },
+                "maxresolution": {
+                  "type": "string",
+                  "pattern": "[0-9]{3,4}x[0-9]{3,4}"
+                },
+                "launchDate": {
+                  "type": "string"
+                },
+                "feature": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 3,
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "prices": {
+                  "type": "object",
+                  "properties": {
+                    "price": {
+                      "type": "string"
+                    },
+                      "currency": {
+                        "type": "string",
+                        "default": "DOL"
+                      }
+                  }
+                },
+                "_type": {
+                  "type": "string",
+		              "enum": ["LED","LCD", "LEDHD"]
+                },
+                "_modelNo": {
+                  "type": "string",
+                  "pattern": "[0-9]*[A-Z]*",
+                  "minLength": 5,
+                  "maxLength": 10
+                }
+              },
+              "required": [
+                "brand",
+                "size",
+                "ratio",
+                "maxresolution",
+                "launchDate",
+                "feature",
+                "price",
+                "_type",
+                "_modelNo"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "monitor"
+      ]
+    }
+  },
+  "required": [
+    "monitors"
+  ]
+}
